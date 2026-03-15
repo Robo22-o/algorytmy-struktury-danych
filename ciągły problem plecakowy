@@ -1,0 +1,43 @@
+from typing import List, Tuple
+
+
+Item = Tuple[float, float]  # (wartość, waga)
+
+
+def fractional_knapsack(
+    items: List[Item],
+    capacity: float
+) -> Tuple[float, List[Tuple[float, float]]]:
+    """
+    Zwraca (całkowita wartość, lista (wartość wzięta, waga wzięta))
+    """
+    # sortujemy po stosunku v/w malejąco
+    sorted_items = sorted(items, key=lambda x: x[0]/x[1] if x[1] > 0 else 0, reverse=True)
+
+    total_value = 0.0
+    taken = []              # (wartość wzięta, waga wzięta)
+
+    for value, weight in sorted_items:
+        if capacity <= 0:
+            break
+        if weight <= capacity:
+            taken.append((value, weight))
+            total_value += value
+            capacity -= weight
+        else:
+            fraction = capacity / weight
+            taken_value = value * fraction
+            taken.append((taken_value, capacity))
+            total_value += taken_value
+            capacity = 0
+
+    return total_value, taken
+
+
+if __name__ == "__main__":
+    # Przykład: przedmioty (wartość, waga), pojemność = 50
+    items = [(60, 10), (100, 20), (120, 30)]
+    val, taken = fractional_knapsack(items, 50)
+    print(f"Maksymalna wartość: {val}")
+    print("Wzięte (wartość, waga):", taken)
+    # typowy wynik: 240.0  [(60,10), (100,20), (80,20)] ← 2/3 z trzeciego przedmiotu
