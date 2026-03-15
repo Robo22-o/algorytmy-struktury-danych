@@ -26,4 +26,7 @@ Post-order: [1, 4, 7, 6, 3, 13, 14, 10, 8]
 Maksymalna wartość: 240.0
 Wzięte (wartość, waga): [(60, 10), (100, 20), (80.0, 20)]
 
-5.
+5. Binarny problem plecakowy
+
+Maksymalna wartość: 220
+Wybrane przedmioty (indeksy): [1, 2]
