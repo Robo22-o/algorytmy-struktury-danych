@@ -21,4 +21,9 @@ Pre-order:  [8, 3, 1, 6, 4, 7, 10, 14, 13]
 In-order:   [1, 3, 4, 6, 7, 8, 10, 13, 14]
 Post-order: [1, 4, 7, 6, 3, 13, 14, 10, 8]
 
-4.
+4.Ciągły problem plecakowy
+
+Maksymalna wartość: 240.0
+Wzięte (wartość, waga): [(60, 10), (100, 20), (80.0, 20)]
+
+5.
